@@ -20,17 +20,22 @@ class Funcionario extends Model
     protected $table = 'Funcionario';
 
     /*
-    mudar chave primaria 
+    mudar chave primaria
     protected $primaryKey = 'nome_pk';
 
 
-    se nao quer auto increment 
+    se nao quer auto increment
     public $increment = false;
 
     definir tipo
     protected $keyType = 'string';
 
-    tirar timestamp 
+    tirar timestamp
     public $timestamps = false;
     */
+
+    public function vendas()
+    {
+        return $this->hasMany(Vendas::class, 'funcionario_id');
+    }
 }
