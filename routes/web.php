@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FuncionarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +25,6 @@ Route::get('/avisos', function () {
         'avisos' => [['id' => 1, 'texto' => "Feriados Agora"], ['id' => 2, 'texto' => "Feriados Semana que vem"]]
     ]);
 });
+
+
+Route::get('/funcionario', [FuncionarioController::class, 'index'])->name('funcionario.index');
