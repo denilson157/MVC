@@ -6,11 +6,11 @@
 
 <body>
     @section('sidebar')
+    @show
     Uma bela barra superior (use a imaginação) <br>
     -------------------------------------------------------------------
-    @show
     <div class="container">
-    <p>teste</p>
+        <p>teste</p>
         @yield('content')
     </div>
 </body>
