@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\VendasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'clientes'], function () {
-    // Route::get('/cliente', [ClientesController::class, 'listar'])->name('cliente.index');
     Route::get('/listar', [ClientesController::class, 'listar'])->middleware('auth');
 });
+
+Route::group(['prefix' => 'vendas'], function () {
+    Route::get('/listar', [VendasController::class, 'listar'])->middleware('auth');
+});
+
