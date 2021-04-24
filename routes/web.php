@@ -3,6 +3,9 @@
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\VendasController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,3 +46,10 @@ Route::group(['prefix' => 'vendas'], function () {
     Route::get('/listar', [VendasController::class, 'listar'])->middleware('auth');
 });
 
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::resource('/users', UserController::class);
+    Route::resource('/roles', RoleController::class);
+
+});
