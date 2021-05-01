@@ -49,7 +49,7 @@ Route::group(['prefix' => 'vendas'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
 
+    Route::resource('/clientes',  ClientesController::class);
     Route::resource('/users', UserController::class);
     Route::resource('/roles', RoleController::class);
-
 });
