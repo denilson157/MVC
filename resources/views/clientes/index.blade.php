@@ -30,9 +30,8 @@
         <th>ID</th>
         <th>Nome</th>
         <th>Email</th>
-        <th>telefone</th>
-        <th>nascimento</th>
-        <th>Perfil</th>
+        <th>Endereço</th>
+        <th>Nascimento</th>
         <th width="280px">Ação</th>
     </tr>
 
@@ -40,9 +39,9 @@
 
     <tr>
         <td>{{ ++$i }}</td>
-        <td>{{ $cliente->nome }}</td>
+        <td>{{ $cliente->name }}</td>
         <td>{{ $cliente->email }}</td>
-        <td>{{ $cliente->telefone }}</td>
+        <td>{{ $cliente->endereco }}</td>
         <td>{{ $cliente->nascimento }}</td>
         <td>
 
