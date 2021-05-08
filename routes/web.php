@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\ClientesController;
-use App\Http\Controllers\VendasController;
+use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Models\User;
@@ -44,4 +44,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/clientes',  ClientesController::class);
     Route::resource('/users', UserController::class);
     Route::resource('/roles', RoleController::class);
+    Route::resource('/fornecedores',  FornecedorController::class);
 });
