@@ -40,7 +40,7 @@ class RoleController extends Controller
 
         $roles = Role::orderBy('id', 'DESC')->paginate($qtd_pagina);
 
-        return view('roles.index', compact('roles'))->with('i', ($request->inputs('page', 1) - 1) * $qtd_pagina);
+        return view('roles.index', compact('roles'))->with('i', ($request->input('page', 1) - 1) * $qtd_pagina);
     }
 
 

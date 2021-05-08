@@ -80,7 +80,7 @@ class UserController extends Controller
             $request,
             [
                 'name' => 'required',
-                'email' => 'required|email|unique:users,email',
+                'email' => 'required|email',
                 'password' => 'required|same:confirm-password',
                 'roles' => 'required'
             ]
