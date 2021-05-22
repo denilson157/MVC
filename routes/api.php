@@ -21,13 +21,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::prefix('v1')->group(static function () {
+Route::group(['middleware' => 'auth.jwt', 'prefix' => 'v1'], static function () {
+
     Route::get('/funcionarios',  [FuncionarioController::class, 'index']);
     Route::post('/funcionarios',  [FuncionarioController::class, 'store']);
     Route::delete('/funcionarios/{id}',  [FuncionarioController::class, 'destroy']);
     Route::get('/funcionarios/{id}',  [FuncionarioController::class, 'show']);
     Route::put('/funcionarios/{id}',  [FuncionarioController::class, 'update']);
-
 
     Route::get('/vendas',  [VendasController::class, 'index']);
     Route::post('/vendas',  [VendasController::class, 'store']);
@@ -35,3 +35,6 @@ Route::prefix('v1')->group(static function () {
     Route::get('/vendas/{id}',  [VendasController::class, 'show']);
     Route::put('/vendas/{id}',  [VendasController::class, 'update']);
 });
+
+Route::post('login', [App\Http\Controllers\APIController::class, 'login']);
+Route::get('logout', [App\Http\Controllers\APIController::class, 'logout']);
