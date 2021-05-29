@@ -82,7 +82,6 @@ class FuncionarioController extends Controller
             $funcionario->endereco = $funcAtualizar['endereco'];
 
             $retorno = $funcionario->update() ? [$id => 'Atualizado'] : [$id => 'Erro'];
-
         } else
             $retorno = json_encode([$id => "não existe"]);
 
@@ -107,5 +106,26 @@ class FuncionarioController extends Controller
         }
 
         return json_encode($retorno);
+    }
+
+    public function checkFuncionario($id)
+    {
+        $funcionario = Funcionario::find($id);
+
+        return $funcionario ?? false;
+    }
+
+    public function get($id)
+    {
+        $funcionario = Funcionario::find($id);
+
+        return $funcionario;
+    }
+
+    public function getAll()
+    {
+        $funcionarios = Funcionario::all();
+
+        return $funcionarios;
     }
 }

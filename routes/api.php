@@ -37,4 +37,4 @@ Route::group(['middleware' => 'auth.jwt', 'prefix' => 'v1'], static function () 
 });
 
 Route::post('login', [App\Http\Controllers\APIController::class, 'login']);
-Route::get('logout', [App\Http\Controllers\APIController::class, 'logout']);
+Route::post('logout', [App\Http\Controllers\APIController::class, 'logout']);

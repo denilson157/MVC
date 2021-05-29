@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Facades\JWTAuth as FacadesJWTAuth;
+use Tymon\JWTAuth\JWTAuth as JWTAuthJWTAuth;
 
 class APIController extends Controller
 {
@@ -15,7 +16,7 @@ class APIController extends Controller
     public function login(Request $request)
     {
         $token = null;
-        
+
         $camposJson = json_decode($request->getContent(), JSON_OBJECT_AS_ARRAY);
 
         $credenciais = [
@@ -36,10 +37,9 @@ class APIController extends Controller
 
     public function logout(Request $request)
     {
-        $this->validate($request, ['token' => 'required']);
 
-        try {
-            JWTAuth::invalidate($request->token);
+        try{
+            JWTAuth::invalidate(JWTAuth::getToken());
 
             return response()->json(
                 [
@@ -51,10 +51,7 @@ class APIController extends Controller
             return response()->json(
                 [
                     'success' => false,
-                    'message' => 'Erro, você ficará preso aqui para sempre'
-                ],
-                500
-            );
+                    'message' => 'Erro, você ficará preso aqui para sempre'],500);
         }
     }
 }

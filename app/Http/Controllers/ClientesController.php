@@ -100,4 +100,18 @@ class ClientesController extends Controller
 
         return view('clientes.index')->with('clientes', $clientes);
     }
+
+    public function checkCliente($id)
+    {
+        $cliente = Clientes::find($id);
+
+        return $cliente ?? false;
+    }
+
+    public function get($id)
+    {
+        $cliente = Clientes::find($id);
+
+        return $cliente;
+    }
 }
